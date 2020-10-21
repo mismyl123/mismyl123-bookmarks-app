@@ -26,11 +26,11 @@ const generateStarRatingElement = function (bookmark) {
   let ratingImageString = '<div class="star-rating flex-item">';
 
   for(let i=0; i<bookmark.rating; i++) {
-    ratingImageString += '<img class="star filled-star" alt="filled rating star" src="/images/star.png" />';
+    ratingImageString += '<img class="star filled-star" alt="filled rating star" src="https://raw.githubusercontent.com/thinkful-ei-shark/mismyl123-bookmarks-app/master/images/star.png" />';
   }
 
   for(let i=0; i<5-bookmark.rating; i++) {
-    ratingImageString += '<img class="star unfilled-star" alt="unfilled rating star" src="/images/no-star.png" />';
+    ratingImageString += '<img class="star unfilled-star" alt="unfilled rating star" src="https://raw.githubusercontent.com/thinkful-ei-shark/mismyl123-bookmarks-app/master/images/no-star.png" />';
   }
 
   ratingImageString += '</div>';
