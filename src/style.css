@@ -1,0 +1,244 @@
+/*
+ * Here is how you would write responsive styles if you chose NOT to use a grid system.
+ *
+ * If you'd like to use a grid system I'd recommend starting here: http://neat.bourbon.io/
+ *
+ * When you are writing these styles, remember to write all of your base/mobile styles first.
+ *
+ * Then write your styles for larger screen-sizes using min-width 
+ * media queries to target each breakpoint in ascending order (see below)
+ * 
+ */
+
+/*
+  * These are your base styles.
+  * Write these styles 1st!
+  */
+
+
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    border: 2px solid beige;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 45px;
+    font-family: Oldtown, fantasy, bold;
+    color: black;
+    margin: 20px auto;
+  }
+  
+  #create-button {
+    background-color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px; 
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+    width: 40%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px black solid;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .filter-results{
+    color: black;
+    
+  }
+  
+  a{
+    color:blue;
+    background-color: beige;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+    font-size: 20px;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    cursor: default;
+    text-decoration: none;
+    margin-right: 2rem;
+    display: block;
+    width: 4.9rem;
+  }
+  
+  #filter-results {
+    margin-bottom: 10px;
+  }
+  
+  .bookmark-element {
+    border-style: solid;
+    border-color: beige;
+    border-radius: 15px;
+    border-width: 1px;
+    background-color: beige;
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .bookmark-element *, #create-view * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .bookmark-section {
+    margin-bottom: 20px;
+    word-wrap: break-word;
+  }
+  
+  .bookmark-buttons {
+    margin-bottom: 0;
+  }
+  
+  .bookmark-rating {
+    display: flex;
+  }
+  
+  .star-rating {
+    margin-left: 20px;
+  }
+  
+  .star-rating img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .expand-prompt {
+    display: block;
+    text-align: center;
+  }
+  
+  .delete-button{
+    background-color: aqua;
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px; 
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+    width: 60%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px black solid;
+  }
+  
+  .cancel-button, .save-button{
+    background-color: aqua;
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px; 
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+    width: 60%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px black solid;
+  }
+  
+  .bookmark-buttons img {
+    height: 30px;
+    margin: 0;
+  }
+  
+  #create-view {
+    text-align: center;
+    background-color: beige;
+  }
+  
+  #create-view h2 {
+    text-align: center;
+  }
+  
+  #create-view form {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  #create-view .form-field {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    vertical-align: middle;
+  }
+  
+  #create-view label {
+    display: inline-block;
+    width: 100px;
+  }
+  
+  #create-view .button-section {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+  }
+  
+  .required{
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  #errors-div{
+    color: black;
+    font-size: 34px;
+    text-align: center;
+    margin: 15px;
+  }
+  
+  
+  /* +++++++++++++++ MEDIUM & BIG MEDIAS +++++++++++++++++++ */
+  @media all and (min-width: 600px) {
+  
+    #create-view .form-field {
+      margin-left: 0;
+    }
+    #create-view .form-field * {
+      vertical-align: middle;
+    }
+    
+    #create-view label {
+      display: inline-block;
+      width: 100px;
+    }
+    
+    #create-view input[type=text], input[type=url], textarea {
+      width: 300px;
+    }
+    
+    #create-view textarea {
+      height: 100px;
+    }
+    
+    #create-view .button-section {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 40px;
+    }
+  
+    .main-wrapper{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .bkm-list{
+      width: 40%;
+      margin: 0 auto 30px auto;
+    }
+  
+    .filter-results{
+      margin: 0 auto 30px auto;
+    }
+  }
