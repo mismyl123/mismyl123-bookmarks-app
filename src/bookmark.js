@@ -5,6 +5,7 @@ import store from './store.js';
 import api from './api.js';
 
 
+
 //RENDER
 const render = function (generatingFunction) {
   $('main').html(generatingFunction);

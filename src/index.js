@@ -8,6 +8,7 @@ import $ from 'jquery';
 import api from './api.js';
 import store from './store.js';
 
+
 //Main function to call all functions and generate to DOM
 
 const main = function() {
