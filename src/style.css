@@ -17,7 +17,6 @@
 
 @import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
 
-
   body {
     display: flex;
     flex-direction: column;
@@ -113,7 +112,12 @@
   
   .star-rating img {
     width: 20px;
-    height: 20px;
+  }
+  .star-rating: url("no-star.png") {
+    width: 20px;
+  }
+  .star-rating: url("star.png") {
+    width: 20px;
   }
   
   .expand-prompt {
