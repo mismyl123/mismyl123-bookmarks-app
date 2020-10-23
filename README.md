@@ -1,5 +1,6 @@
 Live link: 
 BOOKMARKS MOST WANTED APP
+https://thinkful-ei-shark.github.io/mismyl123-bookmarks-app/
 
 
 Here is an app created to save bookmarks. It's a single page app developed using jQuery as a project for Thinkful, using a Thinkful API. All data is wiped every 24 hours. Currently, this app only accesses one API endpoint, so all bookmarks created by all users on a given day will be accessible. Below you'll find a user story that illustrates the need for the bookmark app and the flow that the app will take you through.
@@ -26,4 +27,4 @@ As a user:
 
     Check all validations in the API documentation (e.g. title and url field required).
 
-    I can select from a dropdown (a element) a "minimum rating" to filter the list by all bookmarks rated at or above the chosen selection. 
+    I can select from a dropdown feature a "minimum rating" to filter the list by all bookmarks rated at or above the chosen selection. 
