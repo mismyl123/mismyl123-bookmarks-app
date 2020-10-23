@@ -106,14 +106,6 @@
     display: flex;
   }
   
-
-  .star-rating {
-    margin-left: 20px;
-  }
-  
-  .star-rating img {
-    width: 20px;
-  }
   
   .expand-prompt {
     display: block;

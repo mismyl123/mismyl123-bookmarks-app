@@ -23,21 +23,6 @@ function clearError(){
   $('#errors-div').html('');
 }
 
-const generateStarRatingElement = function (bookmark) {
-  let ratingImageString = '<div class="star-rating flex-item">';
-
-  for(let i=0; i<bookmark.rating; i++) {
-    ratingImageString += '<img class="star filled-star" alt="filled rating star" src="https://raw.githubusercontent.com/thinkful-ei-shark/mismyl123-bookmarks-app/master/images/star.png" />';
-  }
-
-  for(let i=0; i<5-bookmark.rating; i++) {
-    ratingImageString += '<img class="star filled-star" alt="unfilled rating star" src="https://raw.githubusercontent.com/thinkful-ei-shark/mismyl123-bookmarks-app/master/images/no-star.png" />';
-  }
-
-  ratingImageString += '</div>';
-  return ratingImageString;
-};
-
 const generateBookmarkElement = function (bookmark) {
   let bookmarkElementString = `
     <div class="bookmark-element" data-id="${bookmark.id}" tabindex="0">
@@ -47,7 +32,7 @@ const generateBookmarkElement = function (bookmark) {
       </div>  
       <div class="bookmark-rating bookmark-section">
         <div class="flex-item">Rating:</div>
-        ${generateStarRatingElement(bookmark)}
+      <div>${bookmark.rating}</div>
       </div>
   `;
 
@@ -68,7 +53,7 @@ const generateBookmarkElement = function (bookmark) {
 
   else {
     bookmarkElementString += `
-      <span class="expand-prompt">(Click for details)</span></button>`;
+      <span class="expand-prompt">CLICK HERE FOR DETAILS</span></button>`;
   }
 
   bookmarkElementString += `
@@ -94,11 +79,11 @@ const generateMainView = function () {
     <div class="filter-results">
       <label for="filter-results">Filter results:</label>
       <select name="filter-results" id="filter-results">
-        <option selected value="1">★☆☆☆☆</option>
-        <option value="2">★★☆☆☆</option>
-        <option value="3">★★★☆☆</option>
-        <option value="4">★★★★☆</option>
-        <option value="5">★★★★★</option>
+        <option selected value="1 star">✭✰✰✰✰</option>
+        <option value="2 stars">✭✭✰✰✰</option>
+        <option value="3 stars">✭✭✭✰✰</option>
+        <option value="4 stars">✭✭✭✭✰</option>
+        <option value="5 stars">✭✭✭✭✭</option>
       </select>
     </div>
     <div class='bkm-list'>
@@ -129,55 +114,16 @@ const generateCreateView = function () {
         <div class="form-field">
           <label for="rating">Rating:</label>
           <select name="rating" id="rating">
-            <option selected value="1">★☆☆☆☆</option>
-            <option value="2">★★☆☆☆</option>
-            <option value="3">★★★☆☆</option>
-            <option value="4">★★★★☆</option>
-            <option value="5">★★★★★</option>
+            <option selected value="1 star">★✰✰✰✰</option>
+            <option value="2 stars">✮✮✰✰✰</option>
+            <option value="3 stars">✮✮✮✰✰</option>
+            <option value="4 stars">✮✮✮✮✰</option>
+            <option value="5 stars">✮✮✮✮✮</option>
           </select>
         </div>
         <div class="form-field">
           <button class="cancel-button" type="button" id="cancel-button">CANCEL</button>
           <button class="save-button" type="submit" id="save-button">CREATE</button>
-        </div>
-      </form>
-    </div>
-    </legend>
-  `;
-};
-
-const generateEditView = function (bookmark) {
-  return `
-  <legend>
-    <div id="edit-view" class="bookmark-element" data-id="${bookmark.id}">
-      <h2>Create a new bookmark</h2>
-      <form id="edit-form" action="" method="post">
-        <div class="form-field">
-          <label for="title">Title:</label>
-          <input type="text" name="title" id="title" value="${bookmark.title}" required>
-        </div>      
-        <div class="form-field">
-          <label for="url">URL:</label>
-          <input type="url" name="url" id="url" value="${bookmark.url}" required>
-        </div>
-        <div class="form-field">
-          <label for="description">Description:</label>
-          <textarea name="description" id="description" value="${bookmark.desc}"></textarea>
-        </div>
-        <div class="form-field">
-          <label for="rating">Rating:</label>
-          <select name="rating" id="rating" value="${bookmark.rating}" required>      
-            <option value="">Select one</option>
-            <option value="1">1-star</option>
-            <option value="2">2-stars</option>
-            <option value="3">3-stars</option>
-            <option value="4">4-stars</option>
-            <option value="5">5-stars</option>
-          </select>
-        </div>
-        <div class="form-field button-section">
-          <input class="cancel-button" type="" id="cancel-button">
-          <input class="save-button" type="submit" id="save-button">
         </div>
       </form>
     </div>
