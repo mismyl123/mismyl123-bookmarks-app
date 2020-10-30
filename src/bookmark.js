@@ -184,14 +184,14 @@ const handleDeleteButtonClick = function () {
   $('main').on('click', '.delete-button', event => {
     const id = getBookmarkIdFromElement(event.target);
     
-    clearUIError();
+    clearError();
     
     api.deleteBookmark(id)
       .then(() => {
         store.findAndDelete(id);
         render(generateMainView);
       }).catch((err) => {
-        showUIError(err.message);
+        showError(err.message);
       });
   });
   
@@ -199,14 +199,14 @@ const handleDeleteButtonClick = function () {
   $('main').on('keypress', '.delete-button', event => {
     const id = getBookmarkIdFromElement(event.target);
     
-    clearUIError();
+    clearError();
     
     api.deleteBookmark(id)
       .then( () => {
         store.findAndDelete(id);
         render(generateMainView);
       }).catch((err) => {
-        showUIError(err.message);
+        showError(err.message);
       });
   });
 };
