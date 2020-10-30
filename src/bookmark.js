@@ -43,10 +43,12 @@ const generateBookmarkElement = function (bookmark) {
         <div>${bookmark.desc}</div>
       </div>
       <div class="bookmark-section">
-        <div class="bookmark-link" onclick="event.stopPropagation()"><a href="${bookmark.url}" target="_blank">Visit Site</a></div>
+      <label for="bookmark-link"></label>
+      
+     <div class="bookmark-link" onclick="event.stopPropagation()"><a href="${bookmark.url}" target="_blank">Visit Site</a></div>
       </div>
       <div class="bookmark-buttons bookmark-section">
-        <button class="flex-item delete-button">DELETE</button>
+      <button class="flex-item delete-button">DELETE</button>
       </div>
     `;
   }
@@ -79,7 +81,8 @@ const generateMainView = function () {
     <div class="filter-results">
       <label for="filter-results">Filter results:</label>
       <select name="filter-results" id="filter-results">
-        <option selected value="1 star">✭✰✰✰✰</option>
+        <option selected value="0 star">Select Rating...</option>
+        <option value="1 star">✭✰✰✰✰</option>
         <option value="2 stars">✭✭✰✰✰</option>
         <option value="3 stars">✭✭✭✰✰</option>
         <option value="4 stars">✭✭✭✭✰</option>
@@ -114,7 +117,8 @@ const generateCreateView = function () {
         <div class="form-field">
           <label for="rating">Rating:</label>
           <select name="rating" id="rating">
-            <option selected value="1 star">★✰✰✰✰</option>
+            <option selected value="0 star">Select Rating...</option>
+            <option value="1 star">✭✰✰✰✰</option>
             <option value="2 stars">✮✮✰✰✰</option>
             <option value="3 stars">✮✮✮✰✰</option>
             <option value="4 stars">✮✮✮✮✰</option>
@@ -157,6 +161,7 @@ const handleExpandToggleClick = function () {
     currentBookmark.expanded = !currentBookmark.expanded;
     render(generateMainView);
   });
+
 
   $('main').on('keypress', '.bookmark-element', event => {
     let id = getBookmarkIdFromElement($(event.target));
@@ -204,6 +209,7 @@ const handleDeleteButtonClick = function () {
       });
   });
 };
+
 
 const handleCancelButtonClick = function () {
   $('main').on('click', '#cancel-button', event => {
@@ -254,6 +260,9 @@ const bindEventListeners = function () {
   handleDeleteButtonClick();
   handleCancelButtonClick();
   handleSaveButtonClick();
+  
+  
+  
   showError();
   clearError();
 };
