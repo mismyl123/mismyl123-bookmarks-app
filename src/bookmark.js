@@ -55,6 +55,7 @@ const generateBookmarkElement = function (bookmark) {
 
   else {
     bookmarkElementString += `
+  
       <span class="expand-prompt">CLICK HERE FOR DETAILS</span></button>`;
   }
 
@@ -161,8 +162,8 @@ const handleExpandToggleClick = function () {
     currentBookmark.expanded = !currentBookmark.expanded;
     render(generateMainView);
   });
-
-
+}
+const handleExpandToggleKey = function () {
   $('main').on('keypress', '.bookmark-element', event => {
     let id = getBookmarkIdFromElement($(event.target));
     let currentBookmark = store.bookmarks.find(bookmark => bookmark.id === id);
@@ -183,14 +184,14 @@ const handleDeleteButtonClick = function () {
   $('main').on('click', '.delete-button', event => {
     const id = getBookmarkIdFromElement(event.target);
     
-    clearError();
+    clearUIError();
     
     api.deleteBookmark(id)
       .then(() => {
         store.findAndDelete(id);
         render(generateMainView);
       }).catch((err) => {
-        showError(err.message);
+        showUIError(err.message);
       });
   });
   
@@ -198,14 +199,14 @@ const handleDeleteButtonClick = function () {
   $('main').on('keypress', '.delete-button', event => {
     const id = getBookmarkIdFromElement(event.target);
     
-    clearError();
+    clearUIError();
     
     api.deleteBookmark(id)
       .then( () => {
         store.findAndDelete(id);
         render(generateMainView);
       }).catch((err) => {
-        showError(err.message);
+        showUIError(err.message);
       });
   });
 };
@@ -260,6 +261,7 @@ const bindEventListeners = function () {
   handleDeleteButtonClick();
   handleCancelButtonClick();
   handleSaveButtonClick();
+  handleExpandToggleKey();
   
   
   
